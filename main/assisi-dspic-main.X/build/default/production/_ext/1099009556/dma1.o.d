@@ -1,0 +1,22 @@
+build/default/production/_ext/1099009556/dma1.o:  \
+../peripheral/dma/dma1.c  \
+ ../peripheral/dma/dma1.h  \
+../peripheral/dma/../gpio/digitalIO.h  \
+ ../peripheral/dma/../../actuators/pwm.h  \
+ ../peripheral/dma/../../sensors/adxl345/adxl345.h  \
+ ../peripheral/dma/../../sensors/adxl345/../../peripheral/gpio/digitalIO.h  \
+ ../peripheral/dma/../../sensors/adxl345/../../peripheral/spi/spi2.h  \
+ ../peripheral/dma/../../sensors/adxl345/../../peripheral/spi/../gpio/digitalIO.h  \
+ ../peripheral/dma/../../pic-to-beaglebone/pic2beaglebone.h  \
+ ../peripheral/dma/../../pic-to-beaglebone/../peripheral/i2c/i2c2.h  \
+ ../peripheral/dma/../../pic-to-beaglebone/../actuators/peltier.h  \
+ ../peripheral/dma/../../pic-to-beaglebone/../actuators/../casu/initializeHardware.h  \
+ ../peripheral/dma/../../pic-to-beaglebone/../actuators/../casu/../peripheral/timer/timerFunctions.h  \
+ ../peripheral/dma/../../pic-to-beaglebone/../actuators/../casu/../peripheral/timer/timer1.h  \
+ ../peripheral/dma/../../pic-to-beaglebone/../actuators/../casu/../peripheral/timer/../../casu/initializeHardware.h  \
+ ../peripheral/dma/../../pic-to-beaglebone/../actuators/../casu/../peripheral/gpio/digitalIO.h  \
+ ../peripheral/dma/../../pic-to-beaglebone/../actuators/../casu/../pic-to-beaglebone/pic2beaglebone.h  \
+ ../peripheral/dma/../../pic-to-beaglebone/../fft/fft.h  \
+ ../peripheral/dma/../../pic-to-beaglebone/../peripheral/spi/spi2.h  \
+ ../peripheral/dma/../../pic-to-beaglebone/../peripheral/spi/spi1.h  \
+ ../peripheral/dma/../../pic-to-beaglebone/../peripheral/spi/../gpio/digitalIO.h 

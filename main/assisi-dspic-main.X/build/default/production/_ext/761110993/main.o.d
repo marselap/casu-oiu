@@ -1,0 +1,40 @@
+build/default/production/_ext/761110993/main.o:  \
+../casu/main.c  \
+ ../casu/initializeHardware.h  \
+ ../casu/../peripheral/timer/timerFunctions.h  \
+ ../casu/../peripheral/timer/timer1.h  \
+ ../casu/../peripheral/timer/../../casu/initializeHardware.h  \
+ ../casu/../peripheral/gpio/digitalIO.h  \
+ ../casu/../pic-to-beaglebone/pic2beaglebone.h  \
+ ../casu/../pic-to-beaglebone/../peripheral/i2c/i2c2.h  \
+ ../casu/../pic-to-beaglebone/../actuators/peltier.h  \
+ ../casu/../pic-to-beaglebone/../actuators/../casu/initializeHardware.h  \
+ ../casu/../pic-to-beaglebone/../fft/fft.h  \
+ ../casu/../pic-to-beaglebone/../peripheral/spi/spi2.h  \
+ ../casu/../pic-to-beaglebone/../peripheral/spi/../gpio/digitalIO.h  \
+ ../casu/../pic-to-beaglebone/../peripheral/spi/spi1.h  \
+ ../casu/../sensors/adt7320/adt7320.h  \
+ ../casu/../sensors/adt7320/../../peripheral/spi/spi2.h  \
+ ../casu/../sensors/adt7320/../../peripheral/gpio/digitalIO.h  \
+ ../casu/../sensors/adt7420/adt7420.h  \
+ ../casu/../sensors/adt7420/../../peripheral/gpio/digitalIO.h  \
+ ../casu/../sensors/adxl345/adxl345.h  \
+ ../casu/../sensors/adxl345/../../peripheral/gpio/digitalIO.h  \
+ ../casu/../sensors/adxl345/../../peripheral/spi/spi2.h  \
+ ../casu/../peripheral/i2c/i2c1.h  \
+../casu/../peripheral/spi/spi1.h  \
+ ../casu/../peripheral/dma/dma0.h  \
+ ../casu/../peripheral/dma/../gpio/digitalIO.h  \
+ ../casu/../peripheral/dma/../../sensors/adxl345/adxl345.h  \
+ ../casu/../peripheral/dma/../../actuators/pwm.h  \
+ ../casu/../peripheral/dma/dma1.h  \
+ ../casu/../peripheral/dma/../../pic-to-beaglebone/pic2beaglebone.h  \
+ ../casu/../sensors/vcnl4000/proxiVCNL4000.h  \
+../casu/../fft/fft.h  \
+ ../casu/../peripheral/timer/timer2.h  \
+ ../casu/../peripheral/timer/timer3.h  \
+ ../casu/../peripheral/timer/timer4.h  \
+ ../casu/../peripheral/timer/timer5.h  \
+../casu/../actuators/pwm.h  \
+ ../casu/../actuators/peltier.h  \
+../casu/interrupts.h 
