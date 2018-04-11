@@ -10,7 +10,6 @@
       </logicalFolder>
       <logicalFolder name="casu" displayName="casu" projectFiles="true">
         <itemPath>../casu/initializeHardware.h</itemPath>
-        <itemPath>../casu/error.h</itemPath>
         <itemPath>../casu/interrupts.h</itemPath>
       </logicalFolder>
       <logicalFolder name="fft" displayName="fft" projectFiles="true">
@@ -58,7 +57,6 @@
         <logicalFolder name="vcnl4000" displayName="vcnl4000" projectFiles="true">
           <itemPath>../sensors/vcnl4000/proxiVCNL4000.h</itemPath>
         </logicalFolder>
-        <itemPath>../sensors/proximity.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -74,7 +72,6 @@
       </logicalFolder>
       <logicalFolder name="casu" displayName="casu" projectFiles="true">
         <itemPath>../casu/main.c</itemPath>
-        <itemPath>../casu/error.c</itemPath>
         <itemPath>../casu/initializeHardware.c</itemPath>
         <itemPath>../casu/interrupts.c</itemPath>
       </logicalFolder>
@@ -123,7 +120,6 @@
         <logicalFolder name="vcnl4000" displayName="vcnl4000" projectFiles="true">
           <itemPath>../sensors/vcnl4000/proxiVCNL4000.c</itemPath>
         </logicalFolder>
-        <itemPath>../sensors/proximity.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -151,7 +147,7 @@
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>1.21</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>2</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -166,6 +162,8 @@
           <parseOnProdLoad>false</parseOnProdLoad>
           <alternateLoadableFile></alternateLoadableFile>
         </loading>
+        <subordinates>
+        </subordinates>
       </compileType>
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>

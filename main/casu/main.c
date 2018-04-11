@@ -467,6 +467,7 @@ int main(int argc, char** argv) {
 }
 
 void tempLoop() {
+
     int i = 0;
     // Cooler temperature
     adt7420ReadTemp(&temp_pcb, ADT74_I2C_ADD_mainBoard);
@@ -545,20 +546,8 @@ void tempLoop() {
     temp_wax1 = temp_wax;
     temp_casu1 = temp_casu;
 
-    // Delay of the model reference for 4 steps
-    for (i = 1; i < 4; i++) {
-            uref_m[4 - i] = uref_m[3 - i];
-    }
-    //uref_m[0] = temp_ref;
-    uref_m[0] = temp_ref_ramp;
-
-    // Temperature reference model
-    if (uref_m[3] > temp_ref_shutdown) {
-        temp_model = TempModel(uref_m[3]);
-    }
-
     // Peltier feedback loop
-    if (tempNum > 0) {        
+    if (tempNum > 0) {
         if (tempSensors > 0) {
             if (tempCtlOn == 1) {
 
@@ -571,85 +560,10 @@ void tempLoop() {
                         temp_ref = temp_ref_h;
                     if (temp_ref < temp_ref_l)
                         temp_ref = temp_ref_l;
-                    /*if (controller_type == 0) {
-                        ctlPeltier = PeltierPID(temp_ref, temp_wax);
-                    }
-                    else {
-                    */
-                    //LedUser(100,0,0);
-                    //Temperature reference rate limitation
-                    // ramp_slope = temperature change over 1 s; temploop every 2 s
-                    // ramp_slope = 0 --> step fcn (convention)
-                    if (ramp_slope > 0.0) {
-                        temp_ref_ramp = TempRamp(temp_ref, temp_model, ramp_slope * 2.0);
-                    }
-                    else {
-                        temp_ref_ramp = temp_ref;
-                    }
-
-                    // SMC parameter adaptation alpha & beta
-                    if ((alpha > 5.0) && (alpha < 15.0)) {
-                        SmcParamAdapt(&smc_parameters[0], temp_model, temp_wax, temp_ref_ramp);
-                        alpha = smc_parameters[0];
-                        beta = smc_parameters[1];
-                    }
-                    /*if (temp_ref >= 30) {
-                        // rough linearization
-                        alpha = alpha / 2.0;
-                    }*/
-                    //Gain scheduling
-    //                    float polyvalue, polycoef[6], alpha_lin;
-    //                    polycoef[0] = 0.0003;
-    //                    polycoef[1] = -0.0066;
-    //                    polycoef[2] = 0.0542;
-    //                    polycoef[3] = -0.1525;
-    //                    polycoef[4] = 0.0415;
-    //                    polycoef[5] = 1.0060;
-    //                    polyvalue = 0;
-    //                    for(i = 0; i < 6; i++) {
-    //                        polyvalue += polycoef[i] * powf(temp_wax - 26, 5 - i);
-    //                    }
-                    //alpha_lin = alpha / polyvalue;
-                    //alpha = alpha/(1+(powf(temp_wax - 26,4)/7000));
-
-                    float alpha_lin;
-                    float slopes[5];
-
-    //                   float dtemp = temp_wax - 26;
-
-                    slopes[0] = 0.9684;
-                    slopes[1] = 0.9979;
-                    slopes[2] = 0.5271;
-                    slopes[3] = 0.4898;
-                    slopes[4] = 0.4582;
-
-                    float k = 1;
-                    if((temp_wax >= 26) && (temp_wax < 27.5))
-                        k =  slopes[0];
-                    else if ((temp_wax >= 27.5) && (temp_wax < 28.5))
-                        k = (slopes[1] - slopes[0]) * (temp_wax - 27.5) + slopes[0];
-                    else if ((temp_wax >= 28.5) && (temp_wax < 29.5))
-                        k =  slopes[1];
-                    else if ((temp_wax >= 29.5) && (temp_wax < 30.5))
-                        k = (slopes[2] - slopes[1]) * (temp_wax - 29.5) + slopes[1];
-                    else if ((temp_wax >= 30.5) && (temp_wax < 31.5))
-                        k =  slopes[2];
-                    else if ((temp_wax >= 31.5) && (temp_wax < 32.5))
-                        k = (slopes[3] - slopes[2]) * (temp_wax - 31.5) + slopes[2];
-                    else if ((temp_wax >= 32.5) && (temp_wax < 33.5))
-                        k =  slopes[3];
-                    else if ((temp_wax >= 33.5) && (temp_wax < 34.5))
-                        k = (slopes[4] - slopes[3]) * (temp_wax - 33.5) + slopes[3];
-                    else if ((temp_wax >= 34.5) && (temp_wax < 36))
-                        k =  slopes[4];
-
-                    alpha_lin = alpha * k;
-
-                    ctlPeltier = PeltierSMC(temp_ref_ramp, temp_wax, alpha_lin, beta);
-                    //} //else of controller_type
                 }
-                if ((temp_casu > 45) || (temp_pcb > 45)) //Check limits
+                if ((temp_casu > 45) || (temp_pcb > 45)) { //Check limits
                     ctlPeltier = 0;
+                }
                 PeltierVoltageSet(-ctlPeltier);
             }
             else {
@@ -665,8 +579,8 @@ void tempLoop() {
     else {
         ctlPeltier = 0;
         PeltierVoltageSet(ctlPeltier);
-    } 
-        
+    }
+
 }
 
 void FilterGlitch(float* old, float* new, int* index) {

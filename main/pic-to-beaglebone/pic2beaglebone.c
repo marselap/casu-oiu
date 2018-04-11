@@ -143,7 +143,7 @@ void updateReferences(UINT8 msg_id) {
             temp_ref = 0.0;
 
         dummy_ramp = (i2c2_rx_buff[2] | (i2c2_rx_buff[3] << 8));
-        ramp_slope =  dummy_ramp / 1000.0;
+        ctlPeltier =  dummy_ramp / 100.0;
     }
     else if (msg_id == MSG_REF_PROXY_ID) {
         proxyStandby = i2c2_rx_buff[0];
